@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kontak4/database_services.dart';
@@ -10,14 +11,14 @@ class AddContact extends StatefulWidget {
 class _AddContactState extends State<AddContact> {
   TextEditingController _nameController, _numberController;
 
-  // DatabaseReference _ref;
+  CollectionReference _ref;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _nameController = TextEditingController();
     _numberController = TextEditingController();
-    // _ref = FirebaseDatabase.instance.reference().child('Contact');
+    // _ref = FirebaseFirestore.instance.reference().child('Contact');
   }
 
   @override
@@ -55,21 +56,26 @@ class _AddContactState extends State<AddContact> {
             ),
 
             ///ini tu kolom input
-            TextFormField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                  border: UnderlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
-                  hintText: 'Masukan Nama',
-                  hintStyle: TextStyle(color: Colors.white54),
-                  prefixIcon: Icon(
-                    Icons.account_circle,
-                    // color: Colors.white54,
-                    size: 25,
-                  ),
-                  fillColor: Color(0xFF1b1c1e),
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15)),
+            Theme(
+              data: Theme.of(context).copyWith(
+                  primaryColor: Colors.blue, focusColor: Colors.purple),
+              child: TextFormField(
+                style: TextStyle(color: Colors.white),
+                controller: _nameController,
+                decoration: InputDecoration(
+                    border: UnderlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                    hintText: 'Masukan Nama',
+                    hintStyle: TextStyle(color: Colors.white54),
+                    prefixIcon: Icon(
+                      Icons.account_circle,
+                      color: Colors.white54,
+                      size: 25,
+                    ),
+                    fillColor: Color(0xFF1b1c1e),
+                    filled: true,
+                    contentPadding: EdgeInsets.all(15)),
+              ),
             ),
             SizedBox(
               height: 15,
@@ -129,8 +135,9 @@ class _AddContactState extends State<AddContact> {
                       ),
                     ),
                     onPressed: () {
-                      // DatabaseServices.createOrUpdateProduct("1",
-                      //     name: "masker", number: 089504736916);
+                      // return saveContact();
+                      DatabaseServices().createOrUpdateProduct("1",
+                          name: "masker", number: 089504736916);
                     },
                     color: Colors.black,
                   ),
@@ -148,16 +155,16 @@ class _AddContactState extends State<AddContact> {
   }
 
   // void saveContact() {
-  //   String name = _nameController.text;
-  //   String number = _numberController.text;
+  //   // String name = _nameController.text;
+  //   // String number = _numberController.text;
 
-  //   Map<String, String> contact = {
-  //     'name': name,
-  //     "number": number,
-  //   };
-  //   // _ref.push().set(contact).then((value) {
+  //   // Map<String, String> contact = {
+  //   //   'name': name,
+  //   //   "number": number,
+  //   // };
+  //   // _ref.push().set(contact).then((value)
+  //   // {
   //   //   Navigator.pop(context);
-  //   // }
-  //   // );
+  //   // });
   // }
 }

@@ -1,13 +1,11 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-// class DatabaseServices {
-//   static CollectionReference productCollection =
-//       Firestore.instance.collection('products');
+class DatabaseServices {
+  final CollectionReference productCollection =
+      FirebaseFirestore.instance.collection('dataKontak');
 
-//   static Future<void> createOrUpdateProduct(String id,
-//       {String name, int number}) async {
-//     await productCollection
-//         .document(id)
-//         .setData({'nama': name, 'nomor': number});
-//   }
-// }
+  Future<void> createOrUpdateProduct(String id,
+      {String name, int number}) async {
+    await productCollection.doc(id).set({'nama': name, 'nomor': number});
+  }
+}
