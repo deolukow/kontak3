@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +20,12 @@ class _AddContactState extends State<AddContact> {
     super.initState();
     _nameController = TextEditingController();
     _numberController = TextEditingController();
-    // _ref = FirebaseFirestore.instance.reference().child('Contact');
   }
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference dataKontak = firestore.collection('dataKontak');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -82,6 +85,7 @@ class _AddContactState extends State<AddContact> {
             ),
             TextFormField(
               controller: _numberController,
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   border: UnderlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0)),
@@ -135,9 +139,16 @@ class _AddContactState extends State<AddContact> {
                       ),
                     ),
                     onPressed: () {
-                      // return saveContact();
-                      DatabaseServices().createOrUpdateProduct("1",
-                          name: "masker", number: 089504736916);
+                      dataKontak.add({
+                        'nama': _nameController.text,
+                        'nomor': int.tryParse(_numberController.text) ?? 0
+                      });
+
+                      // DatabaseServices().createOrUpdateProduct("3",
+                      //     name: _nameController.text,
+                      //     number: _numberController.text);
+
+                      batal();
                     },
                     color: Colors.black,
                   ),
@@ -155,16 +166,16 @@ class _AddContactState extends State<AddContact> {
   }
 
   // void saveContact() {
-  //   // String name = _nameController.text;
-  //   // String number = _numberController.text;
+  //   String name = _nameController.text;
+  //   String number = _numberController.text;
 
-  //   // Map<String, String> contact = {
-  //   //   'name': name,
-  //   //   "number": number,
-  //   // };
-  //   // _ref.push().set(contact).then((value)
-  //   // {
-  //   //   Navigator.pop(context);
-  //   // });
+  //   Map<String, String> contact = {
+  //     'name': name,
+  //     "number": number,
+  //   };
+  //   _ref.push().set(contact).then((value)
+  //   {
+  //     Navigator.pop(context);
+  //   });
   // }
 }
