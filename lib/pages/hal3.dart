@@ -100,13 +100,18 @@ class _Hal3State extends State<Hal3> {
           child: ListView(
             children: [
               StreamBuilder<QuerySnapshot>(
-                  stream: dataKontak.snapshots(),
+                  stream: dataKontak.orderBy('nama').snapshots(),
                   builder: (_, snapshot) {
                     if (snapshot.hasData) {
                       return Column(
                         children: snapshot.data.docs
-                            .map((e) =>
-                                ItemCard(e.data()['nama'], e.data()['nomor']))
+                            .map((e) => ItemCard(
+                                  e.data()['nama'],
+                                  e.data()['nomor'],
+                                  onDelete: () {
+                                    dataKontak.doc(e.id).delete();
+                                  },
+                                ))
                             .toList(),
                       );
                     } else {

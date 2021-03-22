@@ -37,71 +37,75 @@ class _AddContactState extends State<AddContact> {
         margin: EdgeInsets.all(0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              height: 35,
-            ),
-            Center(
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "https://uas-paw-kelompokiv.000webhostapp.com/img/deo.jpg"),
-                        fit: BoxFit.cover)),
-              ),
-            ),
-            SizedBox(
-              height: 35,
-            ),
-
-            ///ini tu kolom input
-            Theme(
-              data: Theme.of(context).copyWith(
-                  primaryColor: Colors.blue, focusColor: Colors.purple),
-              child: TextFormField(
-                style: TextStyle(color: Colors.white),
-                controller: _nameController,
-                decoration: InputDecoration(
-                    border: UnderlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                    hintText: 'Masukan Nama',
-                    hintStyle: TextStyle(color: Colors.white54),
-                    prefixIcon: Icon(
-                      Icons.account_circle,
-                      color: Colors.white54,
-                      size: 25,
-                    ),
-                    fillColor: Color(0xFF1b1c1e),
-                    filled: true,
-                    contentPadding: EdgeInsets.all(15)),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            TextFormField(
-              controller: _numberController,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  border: UnderlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
-                  hintText: 'Masukan Nomor',
-                  hintStyle: TextStyle(color: Colors.white54),
-                  prefixIcon: Icon(
-                    Icons.phone_android,
-                    color: Colors.white54,
-                    size: 25,
+            // SizedBox(
+            //   height: 35,
+            // ),
+            Column(
+              children: [
+                Center(
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://uas-paw-kelompokiv.000webhostapp.com/img/deo.jpg"),
+                            fit: BoxFit.cover)),
                   ),
-                  fillColor: Color(0xFF1b1c1e),
-                  filled: true,
-                  contentPadding: EdgeInsets.all(15)),
-            ),
-            SizedBox(
-              height: 10,
+                ),
+                SizedBox(
+                  height: 35,
+                ),
+
+                ///ini tu kolom input
+                Theme(
+                  data: Theme.of(context).copyWith(
+                      primaryColor: Colors.blue, focusColor: Colors.purple),
+                  child: TextFormField(
+                    style: TextStyle(color: Colors.white),
+                    controller: _nameController,
+                    decoration: InputDecoration(
+                        border: UnderlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                        hintText: 'Masukan Nama',
+                        hintStyle: TextStyle(color: Colors.white54),
+                        prefixIcon: Icon(
+                          Icons.account_circle,
+                          color: Colors.white54,
+                          size: 25,
+                        ),
+                        fillColor: Color(0xFF1b1c1e),
+                        filled: true,
+                        contentPadding: EdgeInsets.all(15)),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TextFormField(
+                  controller: _numberController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                      hintText: 'Masukan Nomor',
+                      hintStyle: TextStyle(color: Colors.white54),
+                      prefixIcon: Icon(
+                        Icons.phone_android,
+                        color: Colors.white54,
+                        size: 25,
+                      ),
+                      fillColor: Color(0xFF1b1c1e),
+                      filled: true,
+                      contentPadding: EdgeInsets.all(15)),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -143,10 +147,6 @@ class _AddContactState extends State<AddContact> {
                         'nama': _nameController.text,
                         'nomor': int.tryParse(_numberController.text) ?? 0
                       });
-
-                      // DatabaseServices().createOrUpdateProduct("3",
-                      //     name: _nameController.text,
-                      //     number: _numberController.text);
 
                       batal();
                     },

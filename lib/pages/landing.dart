@@ -49,7 +49,7 @@ class _LandingPageState extends State<LandingPage> {
             BottomNavigationBarItem(
               activeIcon: Icon(
                 Icons.apps_outlined,
-                color: Colors.white,
+                color: Colors.blue,
               ),
               icon: Icon(
                 Icons.apps_outlined,
@@ -64,7 +64,7 @@ class _LandingPageState extends State<LandingPage> {
             BottomNavigationBarItem(
               activeIcon: Icon(
                 Icons.call,
-                color: Colors.white,
+                color: Colors.blue,
               ),
               icon: Icon(
                 Icons.call,
@@ -79,7 +79,7 @@ class _LandingPageState extends State<LandingPage> {
             BottomNavigationBarItem(
               activeIcon: Icon(
                 Icons.contact_page,
-                color: Colors.white,
+                color: Colors.blue,
               ),
               icon: new Icon(
                 Icons.contact_page,
