@@ -52,7 +52,7 @@ class _AddContactState extends State<AddContact> {
                         borderRadius: BorderRadius.circular(100),
                         image: DecorationImage(
                             image: NetworkImage(
-                                "https://uas-paw-kelompokiv.000webhostapp.com/img/deo.jpg"),
+                                "https://yt3.ggpht.com/yti/ANoDKi714iJfc29mVF_OjmIirAOkYaZrUp4CzSsK_ULu=s88-c-k-c0x00ffffff-no-rj-mo"),
                             fit: BoxFit.cover)),
                   ),
                 ),

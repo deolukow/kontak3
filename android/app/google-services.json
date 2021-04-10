@@ -8,38 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1021666219921:android:c69d56e02d5f36f5472c30",
+        "mobilesdk_app_id": "1:1021666219921:android:7172f4b3fa4f0efc472c30",
         "android_client_info": {
           "package_name": "com.example.kontak4"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1021666219921-dou1gkchg0p7oasm75qqfl40cu4ggnv0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCf46zYqrbpuhUz8oHGXGbRASeQGo-R-AY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1021666219921-dou1gkchg0p7oasm75qqfl40cu4ggnv0.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1021666219921:android:b24abd69101ec638472c30",
-        "android_client_info": {
-          "package_name": "com.project.tes"
         }
       },
       "oauth_client": [
