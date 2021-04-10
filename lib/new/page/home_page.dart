@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kontak4/google/widget/background_painter.dart';
 
 import 'package:kontak4/new/provider/google_sign_in.dart';
+import 'package:kontak4/new/widget/background_painter.dart';
 import 'package:kontak4/new/widget/logged_in_widget.dart';
 import 'package:kontak4/new/widget/sign_up_widget.dart';
 import 'package:kontak4/pages/hal3.dart';
